@@ -17,8 +17,8 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         subtle:
-          "bg-[var(--secondary-3)] text-secondary-foreground hover:bg-[var(--secondary-5)] dark:ring-1 dark:ring-[var(--secondary-8)] dark:hover:ring-[var(--secondary-9)]",
-        soft: "bg-[var(--primary-3)] text-primary-foreground hover:bg-[var(--primary-5)] dark:ring-1 dark:ring-[var(--primary-8)] dark:hover:ring-[var(--primary-9)]",
+          "ring-1 ring-inset ring-[var(--secondary-7)] bg-[var(--secondary-3)] text-secondary-foreground hover:bg-[var(--secondary-5)] hover:ring-[var(--secondary-8)]",
+        soft: "ring-1 ring-inset ring-[var(--primary-7)] bg-[var(--primary-3)] text-primary-foreground hover:bg-[var(--primary-5)] hover:ring-[var(--primary-8)]",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "underline-offset-4 hover:underline text-primary",
       },

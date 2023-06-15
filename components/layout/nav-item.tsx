@@ -1,30 +1,34 @@
 import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Icon, LucideProps } from "lucide-react"
 
+import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 
 export type NavItemProps = {
-  slug: string
-  icon: string
+  item: (typeof siteConfig.mainNav)[0]
 }
 
-const NavItem = ({ slug, icon }: NavItemProps) => {
+const NavItem = ({ item }: NavItemProps) => {
   const pathName = usePathname()
-  const isCurrentPath = pathName === slug
+  const [parent, current] = pathName.replace(/^\//, "").split("/")
+  const isCurrentPath = pathName === item.href || pathName === `/${parent}`
+  const Icon = Icons[item.icon]
   // @ts-ignore
   // const Icon = Icons[icon]
   return (
     <Link
-      href={slug}
+      href={item.href}
       className={cn(
-        buttonVariants({ variant: isCurrentPath ? "soft" : "ghost" })
+        buttonVariants({ variant: isCurrentPath ? "soft" : "ghost" }),
+        "aspect-square"
       )}
     >
-      {isCurrentPath ? "Y" : "N"}
-      {/*<Icon/>*/}
+      {/*{isCurrentPath ? "Y" : "N"}*/}
+      <Icon className="h-6 w-6" />
     </Link>
   )
 }

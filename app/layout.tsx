@@ -3,11 +3,10 @@ import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { SidePanel, Sidebar } from "@/components/layout"
-import { SiteHeader } from "@/components/site-header"
+import { Toaster } from "@/components/ui/toaster"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import { fontSans } from "@/styles/fonts"
+import { fontMono, fontSans } from "@/styles/fonts"
 
 export const metadata: Metadata = {
   title: {
@@ -38,12 +37,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable
+            fontSans.variable,
+            fontMono.variable
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
-            {/*<TailwindIndicator />*/}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>

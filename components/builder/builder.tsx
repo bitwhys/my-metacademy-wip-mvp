@@ -10,7 +10,7 @@ const initialNodes: Node[] = [
   {
     id: "1",
     type: "input",
-    data: { label: "Input Node" },
+    data: { label: "HTML (structure)" },
     position: { x: 250, y: 25 },
     className: "baseNode",
   },
@@ -18,14 +18,14 @@ const initialNodes: Node[] = [
   {
     id: "2",
     // you can also pass a React component as a label
-    data: { label: <div>Default Node</div> },
+    data: { label: <div>CSS (styling)</div> },
     position: { x: 100, y: 125 },
     className: "baseNode",
   },
   {
     id: "3",
     type: "output",
-    data: { label: "Output Node" },
+    data: { label: "JavaScript (Behavior)" },
     position: { x: 250, y: 250 },
     className: "baseNode",
   },

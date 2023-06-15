@@ -24,6 +24,7 @@ import {
 
 import { Badge } from "@/components/ui/badge"
 import Builder from "@/components/builder"
+import { Icons } from "@/components/icons"
 
 const pages = [
   { name: "Concepts", href: "#", current: false },
@@ -69,7 +70,7 @@ const message = {
 
 const BuilderHeader = () => (
   <>
-    <div className="shrink-0 border-b bg-background mb-px">
+    <div className="-mb-px shrink-0 border-b bg-background">
       <div className="flex h-16 flex-col justify-center">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between py-3">
@@ -81,31 +82,31 @@ const BuilderHeader = () => (
                     type="button"
                     className="relative inline-flex items-center gap-x-1.5 rounded-l-md bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10"
                   >
-                    <ArrowUturnLeftIcon
-                      className="-ml-0.5 h-5 w-5 text-muted-foreground"
+                    <Icons.logo
+                      className="-ml-0.5 h-6 w-6 text-muted-foreground"
                       aria-hidden="true"
                     />
-                    Reply
+                    Explore
                   </button>
                   <button
                     type="button"
                     className="relative -ml-px hidden items-center gap-x-1.5 bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
                   >
-                    <PencilIcon
-                      className="-ml-0.5 h-5 w-5 text-muted-foreground"
+                    <Icons.pencil
+                      className="-ml-0.5 h-6 w-6 text-muted-foreground"
                       aria-hidden="true"
                     />
-                    Note
+                    Notes
                   </button>
                   <button
                     type="button"
-                    className="relative -ml-px hidden items-center gap-x-1.5 rounded-r-md bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
+                    className="relative -ml-px hidden items-center gap-x-1.5 rounded-r-md bg-background px-3 py-2 text-sm font-medium  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
                   >
-                    <UserPlusIcon
-                      className="-ml-0.5 h-5 w-5 text-muted-foreground"
+                    <Icons.link
+                      className="-ml-0.5 h-6 w-6 text-muted-foreground"
                       aria-hidden="true"
                     />
-                    Assign
+                    Share
                   </button>
                 </span>
 
@@ -114,8 +115,8 @@ const BuilderHeader = () => (
                     type="button"
                     className="relative -ml-px hidden items-center gap-x-1.5 rounded-md bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
                   >
-                    <ArchiveBoxIconMini
-                      className="-ml-0.5 h-5 w-5 text-muted-foreground"
+                    <Icons.archive
+                      className="-ml-0.5 h-6 w-6 text-muted-foreground"
                       aria-hidden="true"
                     />
                     Archive
@@ -124,8 +125,8 @@ const BuilderHeader = () => (
                     type="button"
                     className="relative -ml-px hidden items-center gap-x-1.5 rounded-md bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
                   >
-                    <FolderArrowDownIcon
-                      className="-ml-0.5 h-5 w-5 text-muted-foreground"
+                    <Icons.folders
+                      className="-ml-0.5 h-6 w-6 text-muted-foreground"
                       aria-hidden="true"
                     />
                     Move
@@ -142,14 +143,17 @@ const BuilderHeader = () => (
                   className="relative inline-flex items-center rounded-l-md bg-background px-3 py-2 text-muted-foreground ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10"
                 >
                   <span className="sr-only">Next</span>
-                  <ChevronUpIcon className="h-5 w-5" aria-hidden="true" />
+                  <Icons.counterClockwise
+                    className="h-6 w-6"
+                    aria-hidden="true"
+                  />
                 </a>
                 <a
                   href="#"
                   className="relative -ml-px inline-flex items-center rounded-r-md bg-background px-3 py-2 text-muted-foreground ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10"
                 >
                   <span className="sr-only">Previous</span>
-                  <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                  <Icons.clockwise className="h-6 w-6" aria-hidden="true" />
                 </a>
               </span>
             </nav>
@@ -157,11 +161,15 @@ const BuilderHeader = () => (
         </div>
       </div>
     </div>
-    <div className="bg-background border-b pb-6 pt-5">
+    <div className="mt-px bg-background border-b pb-6 pt-5">
       <div className="px-4 sm:flex sm:items-baseline sm:justify-between sm:px-6 lg:px-8">
         <div className="sm:w-0 sm:flex-1">
           <h1 id="message-heading" className="text-lg font-medium">
-            {message.subject}
+            <input
+              type="text"
+              value={message.subject}
+              className="p-0 bg-transparent border-0 outline-none foucs:outline-none focus:ring-0"
+            ></input>
           </h1>
           <p className="mt-1 truncate text-sm text-muted-foreground">
             {message.sender}
@@ -169,7 +177,9 @@ const BuilderHeader = () => (
         </div>
 
         <div className="mt-4 flex items-center justify-between sm:ml-6 sm:mt-0 sm:flex-shrink-0 sm:justify-start">
-          <Badge variant="outline">{message.status}</Badge>
+          <Badge variant="outline" className="text-muted-foreground">
+            {message.status}
+          </Badge>
           {/*<span className="inline-flex items-center rounded-full bg-cyan-100 px-3 py-0.5 text-sm font-medium text-cyan-800">*/}
           {/*  */}
           {/*</span>*/}

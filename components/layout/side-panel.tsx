@@ -3,7 +3,15 @@
 import React, { useState } from "react"
 
 import { Button } from "@/components/ui/button"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { ScriptEditor } from "@/components/editors"
+import CompileButton from "@/components/editors/compile-button"
 
 export type SidePanelProps = {}
 
@@ -13,34 +21,17 @@ const PanelHeader = ({ onCompile }: { onCompile: () => void }) => {
       <div className="flex w-full items-center justify-between">
         <span className="tracking-wider ">Source Editor</span>
         <div className="flex items-center gap-x-3">
-          <div
-            className="inline-flex divide-x divide-neutral-7 overflow-hidden rounded bg-background ring-1 ring-ring
-            transition-colors duration-150 ease-linear hover:bg-accent"
-          >
-            <span className="inline-flex flex-col items-center justify-center px-2 py-1  font-medium text-muted-foreground text-xs">
-              <span className="font-medium">ELK</span>
-            </span>
-            <button
-              type="button"
-              className="flex items-center px-2 py-1   font-medium  shadow-sm "
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="h-6 w-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
-          </div>
-          <Button variant="soft" size="sm">
-            Compile
-          </Button>
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Layout Engine" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="light">Dagre</SelectItem>
+              <SelectItem value="dark">ELK</SelectItem>
+              <SelectItem value="system">TALA</SelectItem>
+            </SelectContent>
+          </Select>
+          <CompileButton />
         </div>
       </div>
     </div>
