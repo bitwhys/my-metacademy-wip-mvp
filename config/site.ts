@@ -1,13 +1,3 @@
-import {
-  Books,
-  CodeSimple,
-  Lighthouse,
-  MapTrifold,
-  Planet,
-} from "@phosphor-icons/react"
-
-import { Icons } from "@/components/icons"
-
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
@@ -18,7 +8,7 @@ export const siteConfig = {
     {
       icon: "lighthouse",
       title: "Home",
-      href: "/dashboard",
+      href: "/",
     },
     {
       icon: "books",

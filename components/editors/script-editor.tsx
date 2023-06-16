@@ -2,7 +2,7 @@
 
 import { useRef } from "react"
 // import grammar from '../lib/d2/grammars/d2.tmLangauage.json'
-import MonacoEditor from "@monaco-editor/react"
+import MonacoEditor, { OnChange, OnMount } from "@monaco-editor/react"
 import { editor } from "monaco-editor"
 import { useTheme } from "next-themes"
 
@@ -53,14 +53,14 @@ API -> requested_data: Responds with Requested Data`
 const ScriptEditor = ({ onEditorChange }: ScriptEditorProps) => {
   const editorRef = useRef<IEditor>(null)
   const { theme } = useTheme()
-  function handleEditorChange(value, _) {
-    onEditorChange(value)
+  const handleEditorChange: OnChange = (value, _) => {
+    onEditorChange(value!)
   }
 
-  function handleEditorDidMount(editor, monaco) {
+  const handleEditorDidMount: OnMount = (editor, monaco) => {
     // here is the editors instance
     // you can store it in `useRef` for further usage
-    editorRef.current = editor
+    // editorRef.current = editor
     // Register a new language
     monaco.languages.register({ id: "d2" })
 

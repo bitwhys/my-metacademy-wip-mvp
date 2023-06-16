@@ -20,7 +20,7 @@ const NavItem = ({ item }: NavItemProps) => {
   const slug = item.href
   const isCurrentPath = slug === pathName || slug === `/${parent}`
 
-  const Icon = Icons[item.icon]
+  const Icon = Icons[item.icon as keyof typeof Icons]
   // @ts-ignore
   // const Icon = Icons[icon]
   return (
@@ -29,11 +29,11 @@ const NavItem = ({ item }: NavItemProps) => {
       href={slug}
       className={cn(
         buttonVariants({ variant: isCurrentPath ? "primary-subtle" : "ghost" }),
-        "w-full aspect-square p-0 text-muted-foreground group"
+        "group aspect-square w-full p-0 text-muted-foreground"
       )}
     >
       {/*{isCurrentPath ? "Y" : "N"}*/}
-      <Icon className="h-6 w-6 group-data-[link-state=active]:text-primary-foreground group-hover:text-foreground" />
+      <Icon className="h-6 w-6 group-hover:text-foreground group-data-[link-state=active]:text-primary-foreground" />
     </Link>
   )
 }
