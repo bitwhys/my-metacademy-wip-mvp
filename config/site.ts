@@ -7,8 +7,8 @@ export const siteConfig = {
   mainNav: [
     {
       icon: "lighthouse",
-      title: "Home",
-      href: "/",
+      title: "Dashboard",
+      href: "/dashboard",
     },
     {
       icon: "books",
