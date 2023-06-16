@@ -14,7 +14,7 @@ const CompileButton = () => {
 
   return (
     <Button
-      variant="soft"
+      variant="secondary"
       onClick={() => {
         toast({
           title: "Scheduled: Compile Code ",

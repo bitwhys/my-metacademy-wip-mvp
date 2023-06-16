@@ -1,39 +1,37 @@
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
+import { Footer } from "@/components/layout/footer"
+import { Illustration } from "@/components/layout/illustration"
 
 export default function IndexPage() {
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
-          Beautifully designed components <br className="hidden sm:inline" />
-          built with Radix UI and Tailwind CSS.
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-          Accessible and customizable components that you can copy and paste
-          into your apps. Free. Open Source. And Next.js 13 Ready.
-        </p>
+    <>
+      <div className="grid min-h-full w-full place-items-center bg-background px-6 py-24 sm:py-32 lg:px-8">
+        <div className="text-center">
+          <Badge variant="outline">Public Alpha</Badge>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
+            There's a new dawn on the horizon
+          </h1>
+          <p className="mt-6 text-base leading-7 text-muted-foreground">
+            We're building something special, playground with out builder
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-x-6">
+            <Link href="/builder" className={cn(buttonVariants({}))}>
+              Try demo
+            </Link>
+            <Link
+              href="#"
+              className={cn(buttonVariants({ variant: "outline" }))}
+            >
+              Github
+            </Link>
+          </div>
+        </div>
       </div>
-      <div className="flex gap-4">
-        <Link
-          href={siteConfig.links.docs}
-          target="_blank"
-          rel="noreferrer"
-          className={buttonVariants()}
-        >
-          Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline" })}
-        >
-          GitHub
-        </Link>
-      </div>
-    </section>
+    </>
   )
 }

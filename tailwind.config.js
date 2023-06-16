@@ -25,6 +25,14 @@ module.exports = {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
         },
+        warning: {
+          DEFAULT: "var(--warning-9)",
+          foreground: "var(--warning-11)",
+        },
+        info: {
+          DEFAULT: "var(--info-9)",
+          foreground: "var(--info-11)",
+        },
         input: {
           DEFAULT: "var(--input)",
           accent: "var(--input-accent)",
@@ -114,21 +122,37 @@ module.exports = {
           "--secondary"
         )
 
+        const lightThemePositivePaletteVariables = normalizeRadixColor(
+          "cyan",
+          "--positive"
+        )
+        const darkThemePositivePaletteVariables = normalizeRadixColor(
+          "cyanDark",
+          "--positive"
+        )
+        const lightThemeInfoPaletteVariables = normalizeRadixColor(
+          "cyan",
+          "--info"
+        )
+        const darkThemeInfoPaletteVariables = normalizeRadixColor(
+          "cyanDark",
+          "--info"
+        )
+        const lightThemeWarningPaletteVariables = normalizeRadixColor(
+          "yellow",
+          "--warning"
+        )
+        const darkThemeWarningPaletteVariables = normalizeRadixColor(
+          "yellowDark",
+          "--warning"
+        )
         const lightThemeDestructivePaletteVariables = normalizeRadixColor(
           "red",
           "--destructive"
         )
-        const lightThemePositivePaletteVariables = normalizeRadixColor(
-          "green",
-          "--positive"
-        )
         const darkThemeDestructivePaletteVariables = normalizeRadixColor(
           "redDark",
           "--destructive"
-        )
-        const darkThemePositivePaletteVariables = normalizeRadixColor(
-          "greenDark",
-          "--positive"
         )
         const overlayPaletteVariables = normalizeRadixColor(
           "blackA",
@@ -138,18 +162,22 @@ module.exports = {
           ":root": {
             ...lightThemeNeutralPaletteVariables,
             ...lightThemePrimaryPaletteVariables,
-            ...lightThemeDestructivePaletteVariables,
-            ...lightThemePositivePaletteVariables,
             ...lightThemeSecondaryPaletteVariables,
+            ...lightThemePositivePaletteVariables,
+            ...lightThemeInfoPaletteVariables,
+            ...lightThemeWarningPaletteVariables,
+            ...lightThemeDestructivePaletteVariables,
             ...darkNeutralPaletteVariables,
             ...overlayPaletteVariables,
           },
           ".dark": {
             ...darkThemeNeutralPaletteVariables,
             ...darkThemePrimaryPaletteVariables,
-            ...darkThemeDestructivePaletteVariables,
-            ...darkThemePositivePaletteVariables,
             ...darkThemeSecondaryPaletteVariables,
+            ...darkThemePositivePaletteVariables,
+            ...darkThemeInfoPaletteVariables,
+            ...darkThemeWarningPaletteVariables,
+            ...darkThemeDestructivePaletteVariables,
           },
         })
       },
@@ -240,6 +268,34 @@ module.exports = {
                 10: "var(--positive-10)",
                 11: "var(--positive-11)",
                 12: "var(--positive-12)",
+              },
+              info: {
+                1: "var(--info-1)",
+                2: "var(--info-2)",
+                3: "var(--info-3)",
+                4: "var(--info-4)",
+                5: "var(--info-5)",
+                6: "var(--info-6)",
+                7: "var(--info-7)",
+                8: "var(--info-8)",
+                9: "var(--info-9)",
+                10: "var(--info-10)",
+                11: "var(--info-11)",
+                12: "var(--info-12)",
+              },
+              warning: {
+                1: "var(--warning-1)",
+                2: "var(--warning-2)",
+                3: "var(--warning-3)",
+                4: "var(--warning-4)",
+                5: "var(--warning-5)",
+                6: "var(--warning-6)",
+                7: "var(--warning-7)",
+                8: "var(--warning-8)",
+                9: "var(--warning-9)",
+                10: "var(--warning-10)",
+                11: "var(--warning-11)",
+                12: "var(--warning-12)",
               },
               overlay: {
                 1: "var(--overlay-1)",

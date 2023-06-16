@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -14,21 +16,24 @@ export type NavItemProps = {
 
 const NavItem = ({ item }: NavItemProps) => {
   const pathName = usePathname()
-  const [parent, current] = pathName.replace(/^\//, "").split("/")
-  const isCurrentPath = pathName === item.href || pathName === `/${parent}`
+  const [parent, _] = pathName.replace(/^\//, "").split("/")
+  const slug = item.href
+  const isCurrentPath = slug === pathName || slug === `/${parent}`
+
   const Icon = Icons[item.icon]
   // @ts-ignore
   // const Icon = Icons[icon]
   return (
     <Link
-      href={item.href}
+      data-link-state={isCurrentPath ? "active" : "idle"}
+      href={slug}
       className={cn(
-        buttonVariants({ variant: isCurrentPath ? "soft" : "ghost" }),
-        "aspect-square"
+        buttonVariants({ variant: isCurrentPath ? "primary-subtle" : "ghost" }),
+        "w-full aspect-square p-0 text-muted-foreground group"
       )}
     >
       {/*{isCurrentPath ? "Y" : "N"}*/}
-      <Icon className="h-6 w-6" />
+      <Icon className="h-6 w-6 group-data-[link-state=active]:text-primary-foreground group-hover:text-foreground" />
     </Link>
   )
 }

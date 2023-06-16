@@ -17,7 +17,7 @@ const Sidebar = ({}: SidebarProps) => {
     <div className="hidden shrink-0 lg:flex">
       <div className="flex w-16 flex-col justify-between border-r  bg-background">
         <div className="relative flex h-full min-h-0 flex-1 flex-col overflow-y-auto">
-          <div className="flex-1 flex flex-col items-center">
+          <div className="flex-1 flex flex-col">
             <Link
               href="/"
               className="inline-flex h-16 w-16 items-center justify-center bg-primary"
@@ -25,9 +25,9 @@ const Sidebar = ({}: SidebarProps) => {
               <Icons.logo className="h-10 w-10 text-white" />
             </Link>
             <div className="-mt-px border-t">
-              <div className="space-y-8 px-2 pt-4 flex flex-col items-center">
+              <div className="gap-y-8 px-3 pt-4 flex flex-col items-center">
                 <NavItem item={homeNavItem} />
-                <ul className="flex flex-col items-center gap-y-2">
+                <ul className="grid items-center gap-y-2">
                   {links.map((link) => (
                     <NavItem item={link} />
                   ))}

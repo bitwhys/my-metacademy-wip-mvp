@@ -18,7 +18,7 @@ export const siteConfig = {
     {
       icon: "lighthouse",
       title: "Home",
-      href: "/",
+      href: "/dashboard",
     },
     {
       icon: "books",

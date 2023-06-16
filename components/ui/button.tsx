@@ -15,10 +15,17 @@ const buttonVariants = cva(
         outline:
           "border border-input hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        subtle:
+          "bg-secondary text-white dark:text-secondary-foreground hover:bg-secondary/80",
+        "primary-subtle":
+          "ring-1 ring-inset ring-[var(--primary-7)] bg-[var(--primary-3)] text-primary-foreground hover:bg-[var(--primary-5)] hover:ring-[var(--primary-8)]",
+        "secondary-subtle":
           "ring-1 ring-inset ring-[var(--secondary-7)] bg-[var(--secondary-3)] text-secondary-foreground hover:bg-[var(--secondary-5)] hover:ring-[var(--secondary-8)]",
-        soft: "ring-1 ring-inset ring-[var(--primary-7)] bg-[var(--primary-3)] text-primary-foreground hover:bg-[var(--primary-5)] hover:ring-[var(--primary-8)]",
+        "positive-subtle":
+          "ring-1 ring-inset ring-[var(--positive-7)] bg-[var(--positive-3)] text-positive-foreground hover:bg-[var(--positive-5)] hover:ring-[var(--positive-8)]",
+        "warning-subtle":
+          "ring-1 ring-inset ring-[var(--warning-7)] bg-[var(--warning-3)] text-warning-foreground hover:bg-[var(--warning-5)] hover:ring-[var(--warning-8)]",
+        "destructive-subtle":
+          "ring-1 ring-inset ring-[var(--destructive-7)] bg-[var(--destructive-3)] text-destructive-foreground hover:bg-[var(--destructive-5)] hover:ring-[var(--destructive-8)]",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "underline-offset-4 hover:underline text-primary",
       },

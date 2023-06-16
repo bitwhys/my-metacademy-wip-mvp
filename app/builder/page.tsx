@@ -24,7 +24,10 @@ import {
 
 import { Badge } from "@/components/ui/badge"
 import Builder from "@/components/builder"
+import ComponentDrawer from "@/components/component-drawer"
 import { Icons } from "@/components/icons"
+import { SidePanel } from "@/components/layout"
+import NotesDrawer from "@/components/notes-drawer"
 
 const pages = [
   { name: "Concepts", href: "#", current: false },
@@ -88,16 +91,7 @@ const BuilderHeader = () => (
                     />
                     Explore
                   </button>
-                  <button
-                    type="button"
-                    className="relative -ml-px hidden items-center gap-x-1.5 bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
-                  >
-                    <Icons.pencil
-                      className="-ml-0.5 h-6 w-6 text-muted-foreground"
-                      aria-hidden="true"
-                    />
-                    Notes
-                  </button>
+                  <NotesDrawer />
                   <button
                     type="button"
                     className="relative -ml-px hidden items-center gap-x-1.5 rounded-r-md bg-background px-3 py-2 text-sm font-medium  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
@@ -111,16 +105,7 @@ const BuilderHeader = () => (
                 </span>
 
                 <span className="hidden space-x-3 lg:flex">
-                  <button
-                    type="button"
-                    className="relative -ml-px hidden items-center gap-x-1.5 rounded-md bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
-                  >
-                    <Icons.archive
-                      className="-ml-0.5 h-6 w-6 text-muted-foreground"
-                      aria-hidden="true"
-                    />
-                    Archive
-                  </button>
+                  <ComponentDrawer />
                   <button
                     type="button"
                     className="relative -ml-px hidden items-center gap-x-1.5 rounded-md bg-background px-3 py-2 text-sm font-semibold  ring-1 ring-inset ring-ring hover:z-10 hover:bg-accent focus:z-10 sm:inline-flex"
@@ -161,14 +146,14 @@ const BuilderHeader = () => (
         </div>
       </div>
     </div>
-    <div className="mt-px bg-background border-b pb-6 pt-5">
+    <div className="mt-px border-b bg-background pb-6 pt-5">
       <div className="px-4 sm:flex sm:items-baseline sm:justify-between sm:px-6 lg:px-8">
         <div className="sm:w-0 sm:flex-1">
           <h1 id="message-heading" className="text-lg font-medium">
             <input
               type="text"
               value={message.subject}
-              className="p-0 bg-transparent border-0 outline-none foucs:outline-none focus:ring-0"
+              className="foucs:outline-none border-0 bg-transparent p-0 outline-none focus:ring-0"
             ></input>
           </h1>
           <p className="mt-1 truncate text-sm text-muted-foreground">
@@ -191,13 +176,31 @@ const BuilderHeader = () => (
 
 const FlowBuilderPage = () => {
   return (
-    <div className="flex h-full w-full flex-col">
-      <BuilderHeader />
-      <div className="bg-canvas relative h-full w-full grow">
-        <Builder />
-      </div>
-      {/*<Prompt/>*/}
-    </div>
+    <>
+      <section
+        aria-labelledby="primary-heading"
+        className="relative flex h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last"
+      >
+        <h1 id="primary-heading" className="sr-only">
+          Account
+        </h1>
+        {/* React Flow (Builder)  */}
+        <div className="h-full w-full">
+          <div className="flex h-full w-full flex-col">
+            <BuilderHeader />
+            <div className="relative h-full w-full grow bg-canvas">
+              <Builder />
+            </div>
+            {/*<Prompt/>*/}
+          </div>
+        </div>
+      </section>
+
+      {/* Script Editor (hidden on smaller screens) */}
+      <aside className="hidden lg:order-first lg:block lg:shrink-0">
+        <SidePanel />
+      </aside>
+    </>
   )
 }
 
